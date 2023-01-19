@@ -3,14 +3,27 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1935" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/drawable/default_pager_dot.xml" value="0.291" />
         <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.1305" />
         <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.1305" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/drawable/ic_indicator.xml" value="0.1935" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1935" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.1935" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/drawable/ic_plus.xml" value="0.1935" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/drawable/ic_user.xml" value="0.1935" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/drawable/indicator.xml" value="0.2895" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/drawable/perm_group_calendar_selected.xml" value="0.2895" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/drawable/selected_pager_dot.xml" value="0.291" />
         <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/layout/fragment_dashboard.xml" value="0.3079710144927536" />
         <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/layout/fragment_home.xml" value="0.3079710144927536" />
         <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/layout/fragment_notifications.xml" value="0.3079710144927536" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/layout/fragment_on_boarding.xml" value="0.29891304347826086" />
         <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/layout/fragment_profile.xml" value="0.3079710144927536" />
         <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/layout/fragment_task.xml" value="0.3079710144927536" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/layout/item_onboarding.xml" value="0.29891304347826086" />
+        <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/layout/task_model.xml" value="0.4221411192214112" />
         <entry key="..\:/Users/user/AndroidStudioProjects/lesson1/app/src/main/res/menu/bottom_nav_menu.xml" value="0.36666666666666664" />
       </map>
     </option>

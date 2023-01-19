@@ -8,9 +8,7 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.setFragmentResult
 import androidx.navigation.fragment.findNavController
-import com.rahim.lesson1.R
 import com.rahim.lesson1.databinding.FragmentTaskBinding
-import com.rahim.lesson1.ui.TaskData
 
 
 class Task : Fragment() {
@@ -24,6 +22,7 @@ private lateinit var binding: FragmentTaskBinding
     ): View? {
      binding = FragmentTaskBinding.inflate(inflater, container,false)
         return binding.root
+
     }
 
 

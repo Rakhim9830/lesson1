@@ -11,6 +11,8 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.rahim.lesson1.databinding.ActivityMainBinding
+import com.rahim.lesson1.ui.onBoarding.BoardingAdapter.OnBoardingAdapter
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,26 +21,44 @@ private lateinit var binding: ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+
+
+
+
      binding = ActivityMainBinding.inflate(layoutInflater)
      setContentView(binding.root)
 
         val navView: BottomNavigationView = binding.navView
 
         val navController = findNavController(R.id.nav_host_fragment_activity_main)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
+        navController.navigate(R.id.onBoardingFragment)
+
+
         val appBarConfiguration = AppBarConfiguration(setOf(
-            R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.task))
+            R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.task, R.id.profile))
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
+
+        val bottomNavFragments = arrayListOf(R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.profile)
+
         navController.addOnDestinationChangedListener(object: NavController.OnDestinationChangedListener{
             override fun onDestinationChanged(
                 controller: NavController,
                 destination: NavDestination,
                 arguments: Bundle?
             ) {
-                navView.isVisible = destination.id != R.id.task
+
+                navView.isVisible =bottomNavFragments.contains(destination.id)
+                if (destination.id == R.id.onBoardingFragment){
+                    supportActionBar?.hide()
+
+                }
+                else supportActionBar?.show()
             }
+
+
+
+
 
         })
     }

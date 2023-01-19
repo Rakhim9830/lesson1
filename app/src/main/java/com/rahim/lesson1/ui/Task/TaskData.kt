@@ -1,4 +1,4 @@
-package com.rahim.lesson1.ui
+package com.rahim.lesson1.ui.Task
 
 import java.io.Serializable
 
