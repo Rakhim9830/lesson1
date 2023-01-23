@@ -18,13 +18,11 @@ class HomeFragment : Fragment() {
     private var _binding: FragmentHomeBinding? = null
     private lateinit var adapter: TaskAdapter
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val adapter = TaskAdapter()
+        adapter = TaskAdapter()
     }
 
     override fun onCreateView(
@@ -45,7 +43,7 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setFragmentResultListener(Task.RESULT_TASK) {key, bundle -> val result =bundle.getSerializable("bundleKey") as TaskData
+        setFragmentResultListener(Task.RESULT_TASK) { _, bundle -> val result =bundle.getSerializable("bundleKey") as TaskData
         adapter.addTask(result)
         }
 

@@ -13,10 +13,9 @@ import com.rahim.lesson1.ui.utils.loadIMage
 
 class OnBoardingAdapter(private val onClick:() -> Unit): RecyclerView.Adapter<OnBoardingAdapter.OnBoardingViewHolder>() {
  private val data = arrayListOf(
-     OnBoard("СЛЕДИТЕ ЗА СОБОЙ!", "ставьте себе новые задачи на день!", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR7LfhaHsjWcKykbqT71vr1LZzRN1GWttFjLg&usqp=CAU"),
-     OnBoard("ДИСЦИПЛИНА эТО ТВОЕ БУДУЩЕЕ!", "приложение поможет вам следить за поставленными задачами","https://img.freepik.com/premium-photo/stethoscope-workplace-healthcare-document-hand_1098-6921.jpg?size=626&ext=jpg" ),
-     OnBoard("СТАНОВИТЕСЬ КАЖДЫЙ ДЕНЬ ЛУЧШЕ","станьте лучшей версией себя!","https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa7FiEZmXmQYoQ11_K8YhEqObk10qXpRxvQw&usqp=CAU")
-
+     OnBoard("СЛЕДИТЕ ЗА СОБОЙ!", "ставьте себе новые задачи на день!", ""),
+     OnBoard("ДИСЦИПЛИНА эТО ТВОЕ БУДУЩЕЕ!", "приложение поможет вам следить за поставленными задачами","" ),
+     OnBoard("СТАНОВИТЕСЬ КАЖДЫЙ ДЕНЬ ЛУЧШЕ","станьте лучшей версией себя!","")
 
  )
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OnBoardingViewHolder {

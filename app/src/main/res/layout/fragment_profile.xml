@@ -19,11 +19,37 @@
         app:civ_border_color="#FF000000"/>
 
     <EditText
+        android:id="@+id/profile_ed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/profile_image"
         android:layout_marginTop="16dp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:hint="profile"
+        android:minHeight="48dp"
         app:layout_constraintEnd_toEndOf="parent"
-        android:hint="profile"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/profile_image"
+        tools:ignore="HardcodedText" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btn_profile"
+        android:text="SAVE"
+        android:layout_marginTop="45dp"
+        android:contentDescription="@string/get_started"
+        app:layout_constraintEnd_toEndOf="@id/profile_ed"
+        app:layout_constraintStart_toStartOf="@id/profile_ed"
+        app:layout_constraintTop_toBottomOf="@id/profile_ed"
+        tools:ignore="HardcodedText" />
+
+    <EditText
+        android:id="@+id/age_id"
+        android:layout_width="match_parent"
+        android:inputType="number"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@id/profile_ed"
+        app:layout_constraintStart_toStartOf="@id/profile_ed"
+        app:layout_constraintTop_toBottomOf="@id/profile_ed"
+        android:hint="age"
+        tools:ignore="HardcodedText,SpeakableTextPresentCheck,TouchTargetSizeCheck" />
 </androidx.constraintlayout.widget.ConstraintLayout>

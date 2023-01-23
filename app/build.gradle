@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 33
 
     defaultConfig {
         applicationId "com.rahim.lesson1"
@@ -32,6 +32,13 @@ android {
     buildFeatures {
         viewBinding true
     }
+    buildscript {
+        repositories {
+            google()
+            mavenCentral()
+        }
+    }
+
 
 
 
@@ -58,6 +65,9 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.14.2'
 
     implementation("com.tbuonomo:dotsindicator:4.3")
+
+    implementation 'com.google.android.gms:play-services-ads:21.4.0'
+    implementation "androidx.constraintlayout:constraintlayout: 2.1.4"
 
 
 

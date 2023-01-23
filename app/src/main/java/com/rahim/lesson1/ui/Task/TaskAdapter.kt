@@ -30,6 +30,7 @@ private val data = arrayListOf<TaskData>()
         fun bind(task: TaskData) {
             binding.descText.text = task.desc
             binding.taskText.text = task.title
+
         }
 
     }
