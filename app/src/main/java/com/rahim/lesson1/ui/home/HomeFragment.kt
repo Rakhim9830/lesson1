@@ -1,20 +1,21 @@
 package com.rahim.lesson1.ui.home
 
+import android.app.AlertDialog
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.setFragmentResultListener
 import androidx.navigation.fragment.findNavController
+import com.rahim.lesson1.App
 import com.rahim.lesson1.R
 import com.rahim.lesson1.databinding.FragmentHomeBinding
-import com.rahim.lesson1.ui.Task.Task
-import com.rahim.lesson1.ui.Task.TaskData
 import com.rahim.lesson1.ui.Task.TaskAdapter
+import com.rahim.lesson1.ui.Task.TaskData
 
-class HomeFragment : Fragment() {
-
+class HomeFragment : Fragment() , TaskAdapter.Listener{
+    private lateinit var builder:AlertDialog.Builder
     private var _binding: FragmentHomeBinding? = null
     private lateinit var adapter: TaskAdapter
 
@@ -22,7 +23,11 @@ class HomeFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        adapter = TaskAdapter()
+        adapter = TaskAdapter(this)
+        builder = AlertDialog.Builder(requireActivity())
+
+
+
     }
 
     override fun onCreateView(
@@ -43,9 +48,16 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setFragmentResultListener(Task.RESULT_TASK) { _, bundle -> val result =bundle.getSerializable("bundleKey") as TaskData
-        adapter.addTask(result)
-        }
+        val tasks = App.db.taskDao().getAll()
+        adapter.addTask(tasks)
+
+
+
+
+
+
+
+
 
 
         binding.recycleTask.adapter = adapter
@@ -59,6 +71,18 @@ class HomeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+    override fun onClick(adapter: TaskData) {
+        builder.setTitle("Delete?").setMessage("Are you Sure?").setCancelable(true).setPositiveButton("Yes") { _, _ ->
+            App.db.taskDao().delete()
+        }.setNegativeButton("No"){DialogInterface, it -> DialogInterface.cancel()}
+
+    }
+
+
 }
+
+
+
 
 

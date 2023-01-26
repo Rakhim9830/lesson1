@@ -1,9 +1,16 @@
 package com.rahim.lesson1.ui.Task
 
-import java.io.Serializable
+import androidx.room.Entity
+import androidx.room.PrimaryKey
 
+
+import java.io.Serializable
+@Entity
 data  class TaskData (
-  var title:String? = null,
-     val desc:String? = null
+    @PrimaryKey(autoGenerate = true)
+    var id:Int? = null,
+     var title:String? = null,
+     var desc:String? = null
 
 ) : Serializable
+

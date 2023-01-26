@@ -6,13 +6,19 @@ import androidx.recyclerview.widget.RecyclerView
 
 import com.rahim.lesson1.databinding.TaskModelBinding
 
-class TaskAdapter: RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
+class TaskAdapter(val listener: Listener): RecyclerView.Adapter<TaskAdapter.TaskViewHolder>() {
 
 private val data = arrayListOf<TaskData>()
 
-    fun addTask(task: TaskData){
+    fun addTask(task: List<TaskData>){
         data.add(0,task)
         notifyItemChanged(0)
+    }
+    
+    fun addTasks(list:List<TaskData>){
+        data.clear()
+        data.addAll(list)
+        notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TaskViewHolder {
@@ -20,21 +26,36 @@ private val data = arrayListOf<TaskData>()
     }
 
     override fun onBindViewHolder(holder: TaskViewHolder, position: Int) {
-        holder.bind(data[position])
+        holder.bind(data[position], listener)
     }
 
     override fun getItemCount(): Int {
        return data.size
     }
     inner class TaskViewHolder(private val binding: TaskModelBinding ): RecyclerView.ViewHolder(binding.root){
-        fun bind(task: TaskData) {
+        fun bind(task: TaskData, listener: Listener) {
             binding.descText.text = task.desc
             binding.taskText.text = task.title
+            itemView.setOnLongClickListener(){
+                listener.onClick(task)
+                return@setOnLongClickListener true
+            }
 
         }
 
     }
+    interface Listener{
+        fun onClick(adapter: TaskData){
+
+        }
+    }
 
 }
+
+private fun <E> ArrayList<E>.add(index: Int, element: List<E>) {
+
+}
+
+
 
 

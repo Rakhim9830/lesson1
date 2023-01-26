@@ -44,6 +44,9 @@ class Pref (private val context: Context) {
 
 
 
+
+
+
     companion object{
         const val PREF_NAME = "pref_name"
         const val SEEN_KEY = "SEEN_KEY"
