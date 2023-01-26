@@ -49,7 +49,17 @@ class HomeFragment : Fragment() , TaskAdapter.Listener{
         super.onViewCreated(view, savedInstanceState)
 
         val tasks = App.db.taskDao().getAll()
-        adapter.addTask(tasks)
+        adapter.addTasks(tasks)
+
+
+       binding.recycleTask.setOnLongClickListener {
+           builder.setTitle("Delete?").setMessage("Are you Sure?").setCancelable(true).setPositiveButton("Yes") { _, _ ->
+               App.db.taskDao().delete()
+           }.setNegativeButton("No"){DialogInterface, it -> DialogInterface.cancel()}
+           return@setOnLongClickListener true
+       }
+
+
 
 
 
@@ -72,12 +82,8 @@ class HomeFragment : Fragment() , TaskAdapter.Listener{
         _binding = null
     }
 
-    override fun onClick(adapter: TaskData) {
-        builder.setTitle("Delete?").setMessage("Are you Sure?").setCancelable(true).setPositiveButton("Yes") { _, _ ->
-            App.db.taskDao().delete()
-        }.setNegativeButton("No"){DialogInterface, it -> DialogInterface.cancel()}
 
-    }
+
 
 
 }

@@ -10,8 +10,8 @@ class TaskAdapter(val listener: Listener): RecyclerView.Adapter<TaskAdapter.Task
 
 private val data = arrayListOf<TaskData>()
 
-    fun addTask(task: List<TaskData>){
-        data.add(0,task)
+    fun addTask(tasks: TaskData){
+        data.add(0,tasks)
         notifyItemChanged(0)
     }
     
@@ -52,9 +52,7 @@ private val data = arrayListOf<TaskData>()
 
 }
 
-private fun <E> ArrayList<E>.add(index: Int, element: List<E>) {
 
-}
 
 
 
