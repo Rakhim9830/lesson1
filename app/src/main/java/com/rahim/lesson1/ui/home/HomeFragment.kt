@@ -69,14 +69,13 @@ class HomeFragment : Fragment() , TaskAdapter.Listener{
     }
 
     override fun onClick(adapter: TaskData) {
-        binding.recycleTask.setOnLongClickListener {
-            builder.setTitle("Delete?").setMessage("Are you Sure?").setCancelable(true).setPositiveButton("Yes") { _, _ ->
+
+        builder.setTitle("Delete?").setMessage("Are you Sure?").setCancelable(true).setPositiveButton("Yes") { _, _ ->
                 GlobalScope.launch {
                     App.db.taskDao().delete(task.binding())
                 }
             }.setNegativeButton("No"){ DialogInterface, _ -> DialogInterface.cancel()}
-            return@setOnLongClickListener true
-        }
+
         super.onClick(adapter)
     }
 
