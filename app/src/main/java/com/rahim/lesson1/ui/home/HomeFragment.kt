@@ -13,6 +13,8 @@ import com.rahim.lesson1.R
 import com.rahim.lesson1.databinding.FragmentHomeBinding
 import com.rahim.lesson1.ui.Task.TaskAdapter
 import com.rahim.lesson1.ui.Task.TaskData
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 
 class HomeFragment : Fragment() , TaskAdapter.Listener{
     private lateinit var builder:AlertDialog.Builder
@@ -54,7 +56,9 @@ class HomeFragment : Fragment() , TaskAdapter.Listener{
 
        binding.recycleTask.setOnLongClickListener {
            builder.setTitle("Delete?").setMessage("Are you Sure?").setCancelable(true).setPositiveButton("Yes") { _, _ ->
-               App.db.taskDao().delete()
+             GlobalScope.launch {
+                 App.db.taskDao().delete()
+             }
            }.setNegativeButton("No"){DialogInterface, it -> DialogInterface.cancel()}
            return@setOnLongClickListener true
        }
