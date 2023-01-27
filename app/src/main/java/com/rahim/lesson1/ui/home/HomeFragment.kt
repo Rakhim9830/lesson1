@@ -74,7 +74,7 @@ class HomeFragment : Fragment() , TaskAdapter.Listener{
                 GlobalScope.launch {
                     App.db.taskDao().delete(task.binding())
                 }
-            }.setNegativeButton("No"){DialogInterface, it -> DialogInterface.cancel()}
+            }.setNegativeButton("No"){ DialogInterface, _ -> DialogInterface.cancel()}
             return@setOnLongClickListener true
         }
         super.onClick(adapter)
