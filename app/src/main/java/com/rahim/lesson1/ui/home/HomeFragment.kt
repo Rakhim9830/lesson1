@@ -1,7 +1,6 @@
 package com.rahim.lesson1.ui.home
 
 import android.app.AlertDialog
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import com.rahim.lesson1.App
 import com.rahim.lesson1.R
 import com.rahim.lesson1.databinding.FragmentHomeBinding
+import com.rahim.lesson1.ui.Task.Task
 import com.rahim.lesson1.ui.Task.TaskAdapter
 import com.rahim.lesson1.ui.Task.TaskData
 import kotlinx.coroutines.GlobalScope
@@ -22,6 +22,10 @@ class HomeFragment : Fragment() , TaskAdapter.Listener{
     private lateinit var adapter: TaskAdapter
 
     private val binding get() = _binding!!
+    private val task:Task
+        get() {
+            TODO()
+        }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,28 +56,6 @@ class HomeFragment : Fragment() , TaskAdapter.Listener{
 
         val tasks = App.db.taskDao().getAll()
         adapter.addTasks(tasks)
-
-
-       binding.recycleTask.setOnLongClickListener {
-           builder.setTitle("Delete?").setMessage("Are you Sure?").setCancelable(true).setPositiveButton("Yes") { _, _ ->
-             GlobalScope.launch {
-                 App.db.taskDao().delete()
-             }
-           }.setNegativeButton("No"){DialogInterface, it -> DialogInterface.cancel()}
-           return@setOnLongClickListener true
-       }
-
-
-
-
-
-
-
-
-
-
-
-
         binding.recycleTask.adapter = adapter
         binding.btnPlus.setOnClickListener {
             findNavController().navigate(R.id.task)
@@ -86,7 +68,17 @@ class HomeFragment : Fragment() , TaskAdapter.Listener{
         _binding = null
     }
 
-
+    override fun onClick(adapter: TaskData) {
+        binding.recycleTask.setOnLongClickListener {
+            builder.setTitle("Delete?").setMessage("Are you Sure?").setCancelable(true).setPositiveButton("Yes") { _, _ ->
+                GlobalScope.launch {
+                    App.db.taskDao().delete(task.binding())
+                }
+            }.setNegativeButton("No"){DialogInterface, it -> DialogInterface.cancel()}
+            return@setOnLongClickListener true
+        }
+        super.onClick(adapter)
+    }
 
 
 

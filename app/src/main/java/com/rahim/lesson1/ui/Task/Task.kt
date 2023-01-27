@@ -35,6 +35,11 @@ private lateinit var binding: FragmentTaskBinding
         }
 
     }
+
+    fun binding(){
+        binding.edTitle.text.toString()
+        binding.edDesc.text.toString()
+    }
     companion object{
         const val RESULT_TASK = "result"
     }
